@@ -1,0 +1,53 @@
+{
+  "name": "frankenphp-hot-reload",
+  "version": "1.0.0",
+  "description": "Hot reloading for PHP apps running with FrankenPHP",
+  "keywords": [
+    "hot-reload",
+    "php",
+    "frankenphp",
+    "mercure"
+  ],
+  "homepage": "https://github.com/dunglas/frankenphp-hot-reload#readme",
+  "bugs": {
+    "url": "https://github.com/dunglas/frankenphp-hot-reload/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dunglas/frankenphp-hot-reload.git"
+  },
+  "license": "MIT",
+  "author": "Kévin Dunglas",
+  "type": "module",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "files": [
+    "src/",
+    "types/"
+  ],
+  "scripts": {
+    "test": "tsc -p jsconfig.json",
+    "format": "prettier --write ."
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo": "^8.0.20",
+    "idiomorph": "^0.7.4"
+  },
+  "peerDependenciesMeta": {
+    "@hotwired/stimulus": {
+      "optional": true
+    },
+    "idiomorph": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo": "^8.0.20",
+    "@types/node": "^25.0.3",
+    "idiomorph": "^0.7.4",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3"
+  }
+}
