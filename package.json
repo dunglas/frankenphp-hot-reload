@@ -38,6 +38,9 @@
     "@hotwired/stimulus": {
       "optional": true
     },
+    "@hotwired/turbo": {
+      "optional": true
+    },
     "idiomorph": {
       "optional": true
     }
