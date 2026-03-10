@@ -1,6 +1,6 @@
 {
   "name": "frankenphp-hot-reload",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hot reloading for PHP apps running with FrankenPHP",
   "keywords": [
     "hot-reload",
