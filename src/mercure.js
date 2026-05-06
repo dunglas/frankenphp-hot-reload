@@ -29,7 +29,7 @@ es.onmessage =
           return CssReloader.reload(new RegExp(assetNameFromPath(pathName)));
 
         case "js":
-          if (typeof window.Stimulus === "undefined")
+          if (typeof window.Stimulus !== "undefined")
             return StimulusReloader.reload(pathName);
 
         default:
