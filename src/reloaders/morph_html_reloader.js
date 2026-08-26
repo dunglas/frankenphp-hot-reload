@@ -25,8 +25,29 @@ export class MorphHtmlReloader {
     log("Reload html with morph...");
 
     const reloadedDocument = await reloadHtmlDocument();
+    this.#updateHeadStyles(reloadedDocument.head);
     this.#updateBody(reloadedDocument.body);
     return reloadedDocument;
+  }
+
+  /**
+   * @param {HTMLHeadElement} newHead
+   */
+  #updateHeadStyles(newHead) {
+    const newStyles = newHead.querySelectorAll("style");
+
+    document.head.querySelectorAll("style").forEach((currentStyle, index) => {
+      const newStyle = newStyles[index];
+
+      if (
+        !newStyle ||
+        currentStyle.hasAttribute("data-frankenphp-hot-reload-preserve")
+      ) {
+        return;
+      }
+
+      window.Idiomorph.morph(currentStyle, newStyle);
+    });
   }
 
   /**
