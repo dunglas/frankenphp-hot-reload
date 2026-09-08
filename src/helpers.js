@@ -1,9 +1,15 @@
 /**
+ * Extracts the asset name (basename without extension) from a file path.
+ *
+ * The path comes from the file watcher, so on Windows it is an OS path
+ * separated by backslashes (e.g. `C:\app\public\style.css`). Both separators
+ * must be handled, otherwise nothing is stripped and the whole path is
+ * returned as the asset name.
  *
  * @param {string} path
  */
 export function assetNameFromPath(path) {
-  return /** @type {string} */ (path.split("/").pop()).split(".")[0];
+  return /** @type {string} */ (path.split(/[/\\]/).pop()).split(".")[0];
 }
 
 /**
