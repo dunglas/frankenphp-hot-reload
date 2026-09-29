@@ -34,6 +34,8 @@ export class MorphHtmlReloader {
    */
   #updateBody(newBody) {
     window.Idiomorph.morph(document.body, newBody, {
+      // Keep what the developer is typing in the focused field.
+      ignoreActiveValue: true,
       callbacks: {
         beforeNodeMorphed:
           /**
