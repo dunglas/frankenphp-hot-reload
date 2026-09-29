@@ -2,6 +2,7 @@ import config from "./config.js";
 import { assetNameFromPath } from "./helpers.js";
 import { MorphHtmlReloader } from "./reloaders/morph_html_reloader.js";
 import { CssReloader } from "./reloaders/css_reloader.js";
+import { ScriptReloader } from "./reloaders/script_reloader.js";
 import { StimulusReloader } from "./reloaders/stimulus_reloader.js";
 import { TurboHtmlReloader } from "./reloaders/turbo_reloader.js";
 
@@ -29,8 +30,11 @@ es.onmessage =
           return CssReloader.reload(new RegExp(assetNameFromPath(pathName)));
 
         case "js":
-          if (typeof window.Stimulus === "undefined")
+          if (typeof window.Stimulus !== "undefined")
             return StimulusReloader.reload(pathName);
+
+          // Morphing the body doesn't run the new version of a script.
+          return ScriptReloader.reload(new RegExp(assetNameFromPath(pathName)));
 
         default:
           switch (config.htmlReloadMethod) {
