@@ -48,6 +48,9 @@ export class MorphHtmlReloader {
 
             return !oldNode.hasAttribute("data-frankenphp-hot-reload-preserve");
           },
+        // The page's CSP only allows the nonce of the initial response.
+        beforeAttributeUpdated: (/** @type {string} */ name) =>
+          name !== "nonce",
       },
     });
   }
