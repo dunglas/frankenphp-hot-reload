@@ -1,9 +1,10 @@
 /**
+ * The watcher sends OS-native paths, backslash-separated on Windows.
  *
  * @param {string} path
  */
 export function assetNameFromPath(path) {
-  return /** @type {string} */ (path.split("/").pop()).split(".")[0];
+  return /** @type {string} */ (path.split(/[/\\]/).pop()).split(".")[0];
 }
 
 /**
